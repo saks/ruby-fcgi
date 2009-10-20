@@ -1,0 +1,50 @@
+have_header: checking for fcgiapp.h... -------------------- yes
+
+"cc -o conftest -I/usr/include/ruby-1.9.1/i486-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I/tmp/ruby-fcgi-0.8.7/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2 -O2 -g -Wall -Wno-parentheses  -fPIC conftest.c  -L. -L/usr/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic     -lruby-1.9.1-static  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main() {return 0;}
+/* end */
+
+"cc -E -I/usr/include/ruby-1.9.1/i486-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I/tmp/ruby-fcgi-0.8.7/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2 -O2 -g -Wall -Wno-parentheses  -fPIC  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <fcgiapp.h>
+/* end */
+
+--------------------
+
+have_library: checking for FCGX_Accept() in -lfcgi... -------------------- yes
+
+"cc -o conftest -I/usr/include/ruby-1.9.1/i486-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I/tmp/ruby-fcgi-0.8.7/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2 -O2 -g -Wall -Wno-parentheses  -fPIC conftest.c  -L. -L/usr/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic     -lruby-1.9.1-static -lfcgi  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: error: ‘FCGX_Accept’ undeclared (first use in this function)
+conftest.c:5: error: (Each undeclared identifier is reported only once
+conftest.c:5: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { void ((*volatile p)()); p = (void ((*)()))FCGX_Accept; return 0; }
+/* end */
+
+"cc -o conftest -I/usr/include/ruby-1.9.1/i486-linux -I/usr/include/ruby-1.9.1/ruby/backward -I/usr/include/ruby-1.9.1 -I/tmp/ruby-fcgi-0.8.7/ext/fcgi  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2 -O2 -g -Wall -Wno-parentheses  -fPIC conftest.c  -L. -L/usr/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic     -lruby-1.9.1-static -lfcgi  -lpthread -lrt -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:5: warning: implicit declaration of function ‘FCGX_Accept’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main() {return 0;}
+5: int t() { FCGX_Accept(); return 0; }
+/* end */
+
+--------------------
+
