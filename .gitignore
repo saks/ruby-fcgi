@@ -19,3 +19,8 @@ rdoc
 pkg
 
 ## PROJECT::SPECIFIC
+*.so
+*.o
+*.log
+*.gemspec
+tmp/*
