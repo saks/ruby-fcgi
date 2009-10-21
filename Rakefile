@@ -10,6 +10,8 @@ begin
     gem.email = "saksmlz@gmail.com"
     gem.homepage = "http://github.com/saks/fcgi"
     gem.authors = ["saks"]
+    gem.files << "ext/fcgi/extconf.rb" << "ext/fcgi/fcgi.c" << "ext/fcgi/Makefile" << "ext/fcgi/MANIFEST"
+    gem.extensions = ['ext/fcgi/extconf.rb']
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -50,3 +52,4 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
