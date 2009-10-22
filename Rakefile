@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "fcgi"
+    gem.name = "ruby-fcgi"
     gem.summary = %Q{FastCGI library for Ruby.}
     gem.description = %Q{FastCGI is a language independent, scalable, open extension to CGI that provides high performance without the limitations of server specific APIs. For more information, see http://www.fastcgi.com/.}
     gem.email = "saksmlz@gmail.com"
