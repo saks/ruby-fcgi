@@ -1,6 +1,6 @@
 = fcgi - FastCGI library for Ruby
 
-Version 0.8.8
+Version 0.8.9
 
 == Depends
 
@@ -64,7 +64,7 @@ Using the FastCGI native interface:
 
   #!/usr/bin/ruby
   require "fcgi"
-  
+
   FCGI.each {|request|
     out = request.out
     out.print "Content-Type: text/plain\r\n"
@@ -108,3 +108,4 @@ standard CGI library.
   fastcgi.rb 0.7   Copyright (C) 2001 Eli Green
   fcgi.rb    0.8   Copyright (C) 2002 MoonWolf <moonwolf@moonwolf.com>
   fcgi.rb    0.8.5 Copyright (C) 2004 Minero Aoki
+
