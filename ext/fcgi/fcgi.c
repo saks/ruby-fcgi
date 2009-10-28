@@ -11,11 +11,20 @@
 #include <fcntl.h>
 
 #include "ruby.h"
+
+#ifndef RSTRING_PTR
+#define RSTRING_PTR(str) (RSTRING(str)->ptr)
+#endif
+#ifndef RSTRING_LEN
+#define RSTRING_LEN(str) (RSTRING(str)->len)
+#endif
+
 #ifdef HAVE_FASTCGI_FCGIAPP_H
 #include <fastcgi/fcgiapp.h>
 #else
 #include "fcgiapp.h"
 #endif
+
 
 static VALUE cFCGI;
 static VALUE eFCGIError;
@@ -358,11 +367,10 @@ static VALUE fcgi_stream_ungetc(VALUE self, VALUE ch)
   return INT2NUM(c);
 }
 
-static VALUE fcgi_stream_gets(VALUE self)
-{
+static VALUE fcgi_stream_gets(VALUE self) {
   FCGX_Stream *stream;
   char buff[BUFSIZ];
-  VALUE str = rb_str_new("", 0);
+  VALUE str = rb_str_new(0,0);
   OBJ_TAINT(str);
 
   if (rb_safe_level() >= 4 && !OBJ_TAINTED(self)) {
