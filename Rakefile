@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "ruby-fcgi"
     gem.summary = %Q{FastCGI library for Ruby.}
-    gem.description = %Q{FastCGI is a language independent, scalable, open extension to CGI that provides high performance without the limitations of server specific APIs. For more information, see http://www.fastcgi.com/.}
+    gem.description = %Q{FastCGI is a language independent, scalable, open extension to CGI that provides high performance without the limitations of server specific APIs. For more information, see http://www.fastcgi.com/. This is the fork of fcgi implementation for ruby but with ruby1.9 - ruby1.9.1 compability}
     gem.email = "saksmlz@gmail.com"
     gem.homepage = "http://github.com/saks/fcgi"
     gem.authors = ["saks"]
