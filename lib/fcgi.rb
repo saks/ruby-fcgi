@@ -451,9 +451,9 @@ rescue LoadError
       end
       
       def self::read_length(buf)
-        if buf[0] >> 7 == 0
-        then buf.slice!(0,1)[0]
-        else buf.slice!(0,4).unpack('N')[0] & ((1<<31) - 1)
+        if buf[0].ord >> 7 == 0
+        then buf.slice!(0,1)[0].ord
+        else buf.slice!(0,4).unpack('N')[0].ord & ((1<<31) - 1)
         end
       end
 
