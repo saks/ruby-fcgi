@@ -520,7 +520,11 @@ rescue LoadError
       private
 
       def make_body
-        @flagment
+        if @flagment.respond_to? 'force_encoding' then
+          return @flagment.dup.force_encoding('BINARY')
+        else
+          return @flagment
+        end
       end
     end
 
